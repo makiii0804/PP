@@ -93,6 +93,7 @@ var grades = [80, 77, 88, 95, 68];
 
 var allGrades = 0;
 
+
 for( var i = 0; i < grades.length; i++) {
 
     allGrades+=grades[i];
@@ -113,7 +114,7 @@ else if (average < 80) {
 else if (average < 90) {
     console.log('B');
 }
-else if (average < 100) {
+else {
     console.log('A');
 }
 
