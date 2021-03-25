@@ -6,14 +6,15 @@ Output: no*/
 
 var e = 3;
 var a = [5, -4.2, 18, 7];
-var output = 'no';
+var check = 'no';
 
-for(i = 0; i < a.length; i++) {
-    if(e === a[i]) {
-        output = ('yes');
+for ( var i = 0; i < a.length; i++) {
+    if (a[i] === e) {
+        check = 'yes';
     }
+    
 }
-console.log(output);
+    console.log(check);
 
 
 /*2. Write a program that multiplies every positive element of a given array by 2.
@@ -21,16 +22,16 @@ Input array: [-3, 11, 5, 3.4, -8]
 Output array: [-3, 22, 10, 6.8, -8]*/
 
 var array = [-3, 11, 5, 3.4, -8];
-var result= [];
+var help = [];
 
-for(var i = 0; i < array.length; i++) {
-    if(array[i] > 0) {
-        result[i]= array[i]*2;
+for ( i = 0; i < array.length; i++) {
+    if ( array[i] > 0) {
+        help[i]=array[i]*2
     } else {
-        result[i] = array[i];
+        help[i]=array[i];
     }
 }
-console.log(result);
+console.log(help);
 
 
 /*3. Write a program that finds the minimum of a given array and prints out its value and
@@ -38,126 +39,126 @@ index.
 Input array: [4, 2, 2, -1, 6]
 Output: -1, 3*/
 
-var b = [4, 2, 2, -1, 6];
-var min = b[0];
+var array1 = [4, 2, 2, -1, 6];
+var res = 0; //3
 
-
-for ( var i = 0; i < b.length; i++) {
-    if (min > b[i]) {
-        min=b[i];
+for (var i = 0; i < array1.length; i++) {
+    if (array1[res] > array1[i]) {
+        res = i;
     }
 }
-console.log(min);
+console.log(array1[res] + ", " + res);   
+
 
 /*4. Write a program that finds the first element larger than minimum and prints out its value.
 Input array: [4, 2, 2, -1, 6]
 Output: 2*/
 
+var a = [4, 2, 2, -1, 6];
+var drugi; 
+var prvi = a[0]; 
+
+for ( var i = 0; i < a.length; i++) {
+    if (a[i] < prvi) {
+        drugi = prvi; //100=100; 100=4; 4=2
+        prvi =a[i] // 100 = 4; 4=2; 2=-1
+    }
+}
+console.log(drugi);
+
 /*5. Write a program that calculates the sum of positive elements in the array.
 Input array: [3, 11, -5, -3, 2]
 Output: 16*/
 
+var niz = [3, 11, -5, -3, 2];
+var zbir=0;
 
-var c = [3, 11, -5, -3, 2];
-var result = 0;
-
-for(var i = 0; i < c.length; i++) {
-    if(c[i] > 0) {
-        result+= c[i];
+for ( var pozicija = 0; pozicija < niz.length; pozicija++) {
+    if (niz[pozicija] > 0) {
+        zbir+=niz[pozicija];
     }
 }
-   
-console.log(result);
+console.log(zbir);
 
 
-/*6.Write a program that checks if a given array is symmetric. An array is symmetric if it can
+/*6. Write a program that checks if a given array is symmetric. An array is symmetric if it can
 be read the same way both from the left and the right hand side.
 Input array: [2, 4, -2, 7, -2, 4, 2]
 Output: The array is symmetric.
 Input array: [3, 4, 12, 8]
 Output: The array isn’t symmetric.*/
 
-var p = 0;
-var array = [2, 4, -2, 7, -2, 4, 2];
-for(i = 0; i < array.length/2; i++){
-    if(array[i] != array[array.length-1-i]){
-        p = 1;
+
+var a = [2, 4, -2, 7, -2, 4, 2];
+var symmetric = false;
+
+for ( var start = 0 , end = a.length-1; start < end; start ++, end --) {
+    if (a[start] === a[end]) {
+        symmetric = true;
     }
 }
-if(p === 0){
-    console.log("Array is symetric");
-} else{
-    console.log("Array is not symetric");
+if ( symmetric === true) {
+    console.log('The array is symmetric');
+} else {
+    console.log('The array isn\'t symmetric');
 }
 
 
 
-
-/* 7. Write a program that intertwines two arrays. You can assume the arrays are of the same
+/*7. Write a program that intertwines two arrays. You can assume the arrays are of the same
 length.
 Input arrays: [4, 5, 6, 2], [3, 8, 11, 9]
 Output array: [4, 3, 5, 8, 6, 11, 2, 9]*/
 
+var a = [4, 5, 6, 2];
+var b = [3, 8, 11, 9];
+var output = [];
 
-var array1 = [4, 5, 6, 2];
-var array2 = [3, 8, 11, 9];
-var string = "[";
-
-for(var i = 0; i < array1.length; i++){
-
-    string += array1[i] + "," + array2[i];
-    if ( i < array1.length -1) {
-        string+=',';
-    } else {
-        string+= ']';
+if (a.length === b.length) {
+    for ( var i = 0, j = 0; i < a.length; i++, j++) {
+        output[j] = a[i];
+        j++;
+        output[j] = b[i];
     }
-  }
-  console.log(string);
+    console.log(output);
+} else {
+    console.log('Ovo se može izvršiti samo ukoliko su nizovi iste dužine');
+}
 
-
-
-
-  /*8. Write a program that concatenates two arrays.
+/*8. Write a program that concatenates two arrays.
 Input arrays: [4, 5, 6, 2], [3, 8, 11, 9]
 Output array: [4, 5, 6, 2, 3, 8, 11, 9]*/
 
+var a = [4, 5, 6, 2];
+var b = [3, 8, 11, 9];
+var output = [];
 
+for (var i = 0; i < a.length; i++) {
+    output[i] = a[i]    
+}
+for (var i = output.length, j = 0; i < a.length+b.length; i++, j++) {
+    output[i] = b[j];    
+}
+console.log(output);
 
-var inp1 = [4, 5, 6, 2];
-var inp2 = [3, 8, 11, 9];
-var out = [];
-
-for ( var i = 0; i < inp1.length+inp2.length; i++) {
-
-    if ( i < inp1.length) {
-        out[out.length]=inp1[i];
-    } else {
-        var newIndex = i - inp1.length;
-        out[out.length] = inp2[newIndex];
-    }
-             
-}    
-    
-console.log(out);
 
 
 /*9. Write a program that deletes a given element e from the array a.
 Input: e = 2, a = [4, 6, 2, 8, 2, 2]
+
 Output array: [4, 6, 8]*/
 
 var a = [4, 6, 2, 8, 2, 2];
 var e = 2;
-var test= [];
+var output = [];
 
-for (var i = 0; i < a.length; i++) {
-
-    if(a[i] !== e) {
-        test[test.length] = a[i];
+for (var i = 0, j = 0; i < a.length; i++) {
+    if( e !== a[i]) {
+        output[j] = a[i];
+        j++
     }
-    
 }
-console.log(test);
-
+console.log(output);
 
 /*10. Write a program that inserts a given element e on the given position p in the array a. If
 the value of the position is greater than the array length, print the error message.
