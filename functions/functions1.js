@@ -45,7 +45,7 @@ console.log(isThreeDigit(100));
 
 function arithmetic (array) {
     var c=0;
-    for (i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
         c += array[i]; 
     }
     return c/array.length
@@ -88,8 +88,8 @@ is 5 the program should draw:
 
 function chart (number) {
     var star = '';
-    for ( i = 0; i < number; i++) {
-        for ( j = 0; j < number; j++) {
+    for ( var i = 0; i < number; i++) {
+        for ( var j = 0; j < number; j++) {
             if ( i === 0 || i === number -1) {
                 star+='*';
             } else if ( j === 0 || j === number-1) {
@@ -148,7 +148,7 @@ function numberOfDigits (number) {
     return string.length;
 }
  
- var someNum = 555;
+ var someNum = 55;
  console.log(numberOfDigits(someNum));
 
 
@@ -174,7 +174,7 @@ Result: 3*/
 
 function apperanceOfSeven (array, number) {
     var count = 0;
-    for( i = 0; i < array.length; i++) {
+    for( var i = 0; i < array.length; i++) {
         if (number === array[i]) {
             count += 1;
         }
@@ -190,7 +190,7 @@ console.log(apperanceOfSeven(a, e));
 
 function sumOfOddElements (array) {
     var sum=0;
-    for (i = 0; i < array.length; i++) {
+    for ( var i = 0; i < array.length; i++) {
         if (array[i] % 2 === 1) {
             sum+=array[i];
         }
@@ -205,7 +205,7 @@ Modify the program so it calculates the number of both letters a and A.*/
 
 function apperanceOfLetter (longString, inputLowerLetter, inputUpperLetter) {
     var counter = 0;
-    for ( i = 0; i < longString.length; i++) {
+    for ( var i = 0; i < longString.length; i++) {
         if ( inputLowerLetter === longString[i] || inputUpperLetter === longString[i]) {
             counter++;
         }
