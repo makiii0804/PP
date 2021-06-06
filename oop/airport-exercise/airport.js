@@ -53,6 +53,7 @@ function Passenger (person, seat) {
 }
 
 function Flight (relation, date) {
+    
     if(!relation || !date) {
         throw new Error('This input is required!')
     }
