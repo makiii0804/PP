@@ -121,20 +121,28 @@ function Festival (name) { //and number of movies in all programs
         
     }
 }
+
+
+function createMovie (title, genre, length) {
+    var movieGenre = new Genre(genre);
+
+    return new Movie (title, movieGenre, length);
+}
+
+function createProgram (date) {
+    return new Program(date);
+}
+
+
 var festival = new Festival('Weekend festival');
 
-var genre1 = new Genre('Action');
-var genre2 = new Genre('Drama');
-var genre3 = new Genre('Western');
-var genre4 = new Genre('Comedy');
+var program1 = createProgram('28 Oct 2021');
+var program2 = createProgram('29 Oct 2021');
 
-var movie1 = new Movie('Spider-Man: Homecoming',genre1, 133);
-var movie2 = new Movie('War for the Planet of the Apes', genre1, 140);
-var movie3 = new Movie('The Dark Tower', genre3, 95);
-var movie4 = new Movie('Deadpool', genre4, 108);
-
-var program1 = new Program('12 Oct 2021');
-var program2 = new Program('12 Oct 2021');
+var movie1 = createMovie('Spider-Man: Homecoming','Action', 133);
+var movie2 = createMovie('War for the Planet of the Apes', 'Drama', 140);
+var movie3 = createMovie('The Dark Tower','Western', 95);
+var movie4 = createMovie('Deadpool', 'Comedy', 108);
 
 program1.addMovie(movie1);
 program1.addMovie(movie2);
