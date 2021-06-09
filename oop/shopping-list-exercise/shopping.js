@@ -1,6 +1,9 @@
 'use strict';
 
 function Product (name, price, expDate) {
+    if(!name || !price || !expDate) {
+        throw new Error ('This field is required!')
+    }
     this.productId = (4 * Math.random() +1).toFixed(4) *10000;
     this.name = name;
     this.price = price.toFixed(3);
@@ -17,6 +20,9 @@ function ShoppingBag () {
     this.listOfProducts = [];
     
     this.addProduct = function (product) {
+        if(!(product instanceof Product)) {
+            throw new Error ('Invalid input.')
+        }
         if(product.expDate - new Date() > 0) {
             this.listOfProducts.push(product);
         }
@@ -52,6 +58,9 @@ function ShoppingBag () {
 
 
 function PaymentCard (accBalance, cardStatus, validDate) {
+    if(!accBalance || !cardStatus || !validDate) {
+        throw new Error('This field is required!')
+    }
     this.accBalance = accBalance.toFixed(2);
     this.cardStatus = cardStatus;
     this.validDate = new Date (validDate);
@@ -70,7 +79,12 @@ function PaymentCard (accBalance, cardStatus, validDate) {
 
 
 function checkOutAndBuy ( shoppingBag, paymentCard) {
-    
+    if(!(shoppingBag instanceof ShoppingBag)|| !shoppingBag) {
+        throw new Error('Invalid input.')
+    }
+    if(!(paymentCard instanceof PaymentCard)|| !paymentCard) {
+        throw new Error('Invalid input.')
+    }
         
     if(parseFloat(paymentCard.accBalance) >= shoppingBag.calculateTotalPrice()) {
         return  'Purchase is successiful.' 
