@@ -69,14 +69,14 @@ function PaymentCard (accBalance, cardStatus, validDate) {
 }
 
 
-function checkOutAndBuy (accBalance,cardStatus, validDate) {
-    var shoppingBag = new ShoppingBag();
-    var paymentCard = new PaymentCard(accBalance, cardStatus, validDate);
+function checkOutAndBuy ( shoppingBag, paymentCard) {
     
-    if(paymentCard.accBalance >= shoppingBag.calculateTotalPrice()) {
-        return 'Purchase is successiful.' }
+        
+    if(parseFloat(paymentCard.accBalance) >= shoppingBag.calculateTotalPrice()) {
+        return  'Purchase is successiful.' 
+    }
 
-    if (shoppingBag.calculateTotalPrice() >= paymentCard.accBalance ){
+    else {
         return 'Purchase is not successiful! Missing amount: ' + (shoppingBag.calculateTotalPrice() - paymentCard.accBalance)
     }
 }
@@ -102,4 +102,5 @@ bag.addProduct(product3);
 console.log(bag.listOfProducts);
 console.log(bag.getAverage());
 console.log(bag.getMostExpensive());
-console.log(checkOutAndBuy(1200, 'active', '30 Dec 2021'));
+console.log(bag.calculateTotalPrice());
+console.log(checkOutAndBuy(bag, card));
