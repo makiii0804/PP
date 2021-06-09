@@ -5,17 +5,17 @@ function Product (name, price, expDate) {
     this.name = name;
     this.price = price.toFixed(3);
     this.expDate = new Date(expDate);
-
+    
     this.getInfo = function () {
-
+        
         return this.name.charAt().toUpperCase() + this.name.charAt(name.length-1).toUpperCase() + this.productId + ', ' + this.name +', ' + this.price;
     }
 }
 
-function ShoppingList () {
-
+function ShoppingBag () {
+    
     this.listOfProducts = [];
-
+    
     this.addProduct = function (product) {
         if(product.expDate - new Date() > 0) {
             this.listOfProducts.push(product);
@@ -27,7 +27,7 @@ function ShoppingList () {
         this.listOfProducts.forEach(function (product) {
             sum += parseFloat(product.price);
         })
-        return (sum / list).toFixed(3);
+        return 'The average price is: ' + (sum / list).toFixed(3);
     }
     this.getMostExpensive = function () {
         var expensive = this.listOfProducts[0];
@@ -35,9 +35,9 @@ function ShoppingList () {
             if(product.price > expensive.price) {
                 expensive = product;
             }
-
+            
         })
-        return expensive;
+        return 'The most expensive product is: ' + expensive.name + ', price: ' + expensive.price;
     }
     this.calculateTotalPrice = function () {
         var sum = 0;
@@ -49,10 +49,57 @@ function ShoppingList () {
     }
 }
 
-var banana = new Product ('banana', 100, '12 Oct 2021');
-var apple = new Product ('apple', 200, '12 Oct 2021');
-console.log(banana.getInfo());
-var list = new ShoppingList ();
-list.addProduct(banana);
-list.addProduct(apple);
-console.log(list.calculateTotalPrice());
+
+
+function PaymentCard (accBalance, cardStatus, validDate) {
+    this.accBalance = accBalance.toFixed(2);
+    this.cardStatus = cardStatus;
+    this.validDate = new Date (validDate);
+    
+    
+    if(!(this.validDate - new Date() > 0)) {
+        throw new Error ('This credit card is expired.')
+    }
+    
+    
+    if(this.cardStatus !== 'active') {
+        throw new Error ('This credit card is inactive.')
+    }
+    
+}
+
+
+function checkOutAndBuy (accBalance,cardStatus, validDate) {
+    var shoppingBag = new ShoppingBag();
+    var paymentCard = new PaymentCard(accBalance, cardStatus, validDate);
+    
+    if(paymentCard.accBalance >= shoppingBag.calculateTotalPrice()) {
+        return 'Purchase is successiful.' }
+
+    if (shoppingBag.calculateTotalPrice() >= paymentCard.accBalance ){
+        return 'Purchase is not successiful! Missing amount: ' + (shoppingBag.calculateTotalPrice() - paymentCard.accBalance)
+    }
+}
+
+var product1 = new Product ('Banana', 100, '12 Oct 2021');
+var product2 = new Product ('Apple', 200, '12 Nov 2020');
+var product3 = new Product ('Avocado', 300, '17 Jul 2021')
+
+var card = new PaymentCard(200, 'active', '30 Dec 2021')
+
+console.log(product1.getInfo());
+console.log(product2.getInfo());
+console.log(product3.getInfo());
+
+
+var bag = new ShoppingBag ();
+
+bag.addProduct(product1);
+bag.addProduct(product2);
+bag.addProduct(product3);
+
+
+console.log(bag.listOfProducts);
+console.log(bag.getAverage());
+console.log(bag.getMostExpensive());
+console.log(checkOutAndBuy(1200, 'active', '30 Dec 2021'));
