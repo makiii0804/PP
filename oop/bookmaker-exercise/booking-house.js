@@ -1,6 +1,6 @@
 'use strict';
 
-var CONTINETS = Object.freeze({
+var CONTINENTS = Object.freeze({
     EUROPE:'EU',
     ASIA: 'AS',
     AFRICA: 'AF',
@@ -16,8 +16,8 @@ function Country (name, odds, continent) {
         throw new Error('This field is required!')
     }
     
-    if(!['EU', 'AS', 'AF', 'SA', 'NA', 'AU'].includes (continent)) {
-        throw new Error('Invalid input')
+    if(!Object.values(CONTINENTS).includes (continent)) {
+        throw new Error('Invalid input');
     }
     
     
@@ -240,13 +240,13 @@ function createBettingPlace (country, odds, continent, city, postalCode, street,
 
 var sport = new BettingHouse('Football World Cup Winner');
 
-var player1 = createPlayer('Pera', 'Peric', '27 Oct 1991', 1000, 'Srbija', 1.50, CONTINETS.EUROPE);
-var player2 = createPlayer('Marko', 'Markovic', '17 Nov 1995', 1100, 'Srbija', 1.20, CONTINETS.EUROPE);
-var player3 = createPlayer('Jovan', 'Jovanovic', '07 Apr 1998', 2000, 'Srbija', 2.50, CONTINETS.EUROPE);
-var player4 = createPlayer('Milos', 'Peric', '30 Sep 1992', 900, 'Srbija', 1.00, CONTINETS.EUROPE);
+var player1 = createPlayer('Pera', 'Peric', '27 Oct 1991', 1000, 'Srbija', 1.50, CONTINENTS.EUROPE);
+var player2 = createPlayer('Marko', 'Markovic', '17 Nov 1995', 1100, 'Srbija', 1.20, CONTINENTS.EUROPE);
+var player3 = createPlayer('Jovan', 'Jovanovic', '07 Apr 1998', 2000, 'Srbija', 2.50, CONTINENTS.EUROPE);
+var player4 = createPlayer('Milos', 'Peric', '30 Sep 1992', 900, 'Srbija', 1.00, CONTINENTS.EUROPE);
 
-var bett1 = createBettingPlace('Srbija', 1.50, CONTINETS.EUROPE, 'Beograd', 11000, 'Nemanjina', 4);
-var bett2 = createBettingPlace('Srbija', 1.20, CONTINETS.EUROPE, 'Beograd', 11000, 'Beogradska', 11);
+var bett1 = createBettingPlace('Srbija', 1.50, CONTINENTS.EUROPE, 'Beograd', 11000, 'Nemanjina', 4);
+var bett2 = createBettingPlace('Srbija', 1.20, CONTINENTS.EUROPE, 'Beograd', 11000, 'Beogradska', 11);
 
 
 
