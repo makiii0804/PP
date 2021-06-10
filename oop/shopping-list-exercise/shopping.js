@@ -4,14 +4,18 @@ function Product (name, price, expDate) {
     if(!name || !price || !expDate) {
         throw new Error ('This field is required!')
     }
-    this.productId = (4 * Math.random() +1).toFixed(4) *10000;
+    this.productId = Math.round(Math.random().toFixed(5) *100000);
     this.name = name;
     this.price = price.toFixed(3);
     this.expDate = new Date(expDate);
+
+    this.shortName = function () {
+        return this.name.charAt().toUpperCase() + this.name.charAt(name.length-1).toUpperCase()
+    }
     
     this.getInfo = function () {
         
-        return this.name.charAt().toUpperCase() + this.name.charAt(name.length-1).toUpperCase() + this.productId + ', ' + this.name +', ' + this.price;
+        return this.shortName() + this.productId + ', ' + this.name +', ' + this.price;
     }
 }
 
@@ -79,10 +83,10 @@ function PaymentCard (accBalance, cardStatus, validDate) {
 
 
 function checkOutAndBuy ( shoppingBag, paymentCard) {
-    if(!(shoppingBag instanceof ShoppingBag)|| !shoppingBag) {
+    if(!shoppingBag || !(shoppingBag instanceof ShoppingBag)) {
         throw new Error('Invalid input.')
     }
-    if(!(paymentCard instanceof PaymentCard)|| !paymentCard) {
+    if(!paymentCard || !(paymentCard instanceof PaymentCard)) {
         throw new Error('Invalid input.')
     }
         
