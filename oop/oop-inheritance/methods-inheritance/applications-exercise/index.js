@@ -13,6 +13,12 @@ class App {
       } else {
         return 'This licence is not CC';
       }
+    }
+    like () {
+      this.stars+=1;
+    }
+    showStars () {
+      return this.stars
     } 
   }
   class WebApp extends App {
@@ -56,3 +62,5 @@ class App {
   var mob1 = new MobileApp('PlayStore', 'Android', true, 5);
   //console.log(mob1.getMobileData());
   console.log(mob1.forAndroid());
+  //mob1.like();
+  console.log(mob1.showStars());
