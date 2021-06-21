@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .container {
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 20px;
+  }
+  form {
+    border: 1px solid darkgray;
+    padding: 10px;
+  }
+  input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+  }
+  select {
+    width: 100%;
+    border: none;
+    background-color: rgb(237, 236, 236);
+    margin: 10px 0;
+    padding: 10px;
+  }
+  .btn {
+    background-color: rgb(0, 116, 26);
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: none;
+  }
