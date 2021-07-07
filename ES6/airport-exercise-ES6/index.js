@@ -137,22 +137,22 @@ function createFlight (relation, date) {
 }
 
 function createPassenger (name, surname, number, category) {
-    let person = new Person(name, surname)
-    let seat = new Seat(number, category)
+    const person = new Person(name, surname)
+    const seat = new Seat(number, category)
     return new Passenger(person, seat);
 }
 
 
 
-let airPort = new Airport();
+const airPort = new Airport();
 
-let flight1 = createFlight('Belgrade - New York', 'Oct 25 2017');
-let flight2 = createFlight('Barcelona - Belgrade', 'Nov 11 2017');
+const flight1 = createFlight('Belgrade - New York', 'Oct 25 2017');
+const flight2 = createFlight('Barcelona - Belgrade', 'Nov 11 2017');
 
-let passenger1 = createPassenger('John', 'Snow', 1, 'b');
-let passenger2 = createPassenger('Cercei', 'Lannister', 2, 'b');
-let passenger3 = createPassenger('Daenerys', 'Targaryen',14);
-let passenger4 = createPassenger('Tyrion', 'Lannister');
+const passenger1 = createPassenger('John', 'Snow', 1, 'b');
+const passenger2 = createPassenger('Cercei', 'Lannister', 2, 'b');
+const passenger3 = createPassenger('Daenerys', 'Targaryen',14);
+const passenger4 = createPassenger('Tyrion', 'Lannister');
 
 flight1.addPassenger(passenger1);
 flight1.addPassenger(passenger2);
