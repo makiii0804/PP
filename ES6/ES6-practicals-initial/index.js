@@ -40,6 +40,12 @@ Output: [6, 0]*/
 Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
 Output: ['babel.js, 'JS standard']*/
 
+let input = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
+
+const items = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter'];
+const output = items.filter(a => a.includes('JS') || a.includes("js"));
+console.log(output);
+
 /*6.	Write a function that filters all integer numbers from the given array. 
 Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
 Output: [7, 8]*/
