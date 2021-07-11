@@ -2,6 +2,18 @@
 Function arguments: ['hello', 'there', 'ES', 6]
 Output: ['Hello', 'There', 'ES']*/
 
+const capitalize = (array) => {
+    let output = [];
+    array.forEach((element) => {
+      if (typeof element !== "number") {
+        output.push(element[0].toUpperCase() + element.slice(1));
+      }
+    });
+    return output;
+  };
+  const result = capitalize(["hello", "there", "ES", 6]);
+  console.log(result);
+
 /*2.	Write a function that calculates sale tax that should be paid for the product of the given price. Use a constant to set a fixed value of the tax rate (i.e. 20% in Serbia). 
 Input: [{ name: "Banana", price: 120 }, {name: "Orange",  price: 100}]
 Output: [{ name: "Banana", price: 144 }, { name: "Orange",  price: 120 }] // product full price
@@ -40,11 +52,9 @@ Output: [6, 0]*/
 Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
 Output: ['babel.js, 'JS standard']*/
 
-let input = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
-
 const items = ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter'];
-const output = items.filter(a => a.includes('JS') || a.includes("js"));
-console.log(output);
+const output = array =>  array.filter(a => a.includes('JS') || a.includes("js"));
+console.log(output(items));
 
 /*6.	Write a function that filters all integer numbers from the given array. 
 Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
