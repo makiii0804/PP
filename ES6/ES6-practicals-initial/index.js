@@ -48,6 +48,10 @@ console.log(incressesEachElement(a, b));
 Input: [6, 11, 9, 0, 3]
 Output: [6, 0]*/
 
+let input = [6, 11, 9, 0, 3];
+let getEvenNumbers = arr => arr.filter(number => number % 2 == 0);
+console.log(getEvenNumbers(input))
+
 /*5.	Write a function that filters all the strings from the given array that contain substring JS or js.
 Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
 Output: ['babel.js, 'JS standard']*/
