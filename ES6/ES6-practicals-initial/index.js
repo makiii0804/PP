@@ -3,16 +3,16 @@ Function arguments: ['hello', 'there', 'ES', 6]
 Output: ['Hello', 'There', 'ES']*/
 
 const capitalize = (array) => {
-    let output = [];
-    array.forEach((element) => {
-      if (typeof element !== "number") {
-        output.push(element[0].toUpperCase() + element.slice(1));
-      }
-    });
-    return output;
-  };
-  const result = capitalize(["hello", "there", "ES", 6]);
-  console.log(result);
+  let output = [];
+  array.forEach((element) => {
+    if (typeof element !== "number") {
+      output.push(element[0].toUpperCase() + element.slice(1));
+    }
+  });
+  return output;
+};
+const result = capitalize(["hello", "there", "ES", 6]);
+console.log(result);
 
 /*2.	Write a function that calculates sale tax that should be paid for the product of the given price. Use a constant to set a fixed value of the tax rate (i.e. 20% in Serbia). 
 Input: [{ name: "Banana", price: 120 }, {name: "Orange",  price: 100}]
@@ -20,14 +20,14 @@ Output: [{ name: "Banana", price: 144 }, { name: "Orange",  price: 120 }] // pro
 Output2: [ 24, 20 ] // tax only
 const products = [{ name: "Banana", price: 120.23, date: new Date() }, { name: "Orange", price: 100, date: new Date() }]
 const productsWithTax = products.map(product => {
-    const { price: prodPrice } = product;
-    const newProd = {
-        ...product,
-        price: Number.parseFloat(prodPrice),
-        priceWithTax: prodPrice * 1.2,
-        tax: prodPrice * 0.2
-    }
-    return newProd
+  const { price: prodPrice } = product;
+  const newProd = {
+    ...product,
+    price: Number.parseFloat(prodPrice),
+    priceWithTax: prodPrice * 1.2,
+    tax: prodPrice * 0.2
+  }
+  return newProd
 })
 console.log(products);
 console.log(productsWithTax);*/
@@ -75,6 +75,21 @@ Output: [45, 553]*/
 /*8.	Write a function that returns indexes of the elements greater than 10. 
 Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
 Output: 1, 2, 5*/
+
+const returnGreaterThanTen = arr => {
+  let output = [];
+  arr.forEach(element => {
+    if (element > 10) {
+      output.push(arr.indexOf(element))
+    }
+  });
+  return output;
+}
+let array1 = [1.6, 11.34, 29.23, 7, 3.11, 18];
+console.log(returnGreaterThanTen(array1));
+
+
+
 /*9.	
 a.	Create an array of persons. A person should be an object with name and age properties. Experiment with enhanced object literals. 
 b.	Write a function that prints out the names of persons older than 25. 
