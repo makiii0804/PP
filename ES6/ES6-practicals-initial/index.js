@@ -72,6 +72,19 @@ console.log(filteredNumbers(str));
 Function arguments: 23, 11.5, 9, 'abc', 45, 28, 553 
 Output: [45, 553]*/
 
+const filterDigit = (...args) => {
+  let input = args;
+  let containsDigits = [];
+  input.forEach(element => {
+    if(parseInt(element).toString().includes(5)) {
+      containsDigits.push(element);
+    }
+  })
+  return containsDigits;
+}
+console.log(filterDigit(23, 11.5, 9, 'abc', 45, 28, 553));
+
+
 /*8.	Write a function that returns indexes of the elements greater than 10. 
 Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
 Output: 1, 2, 5*/
