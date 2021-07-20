@@ -1,3 +1,19 @@
+class Festival {
+  constructor() {
+  this.listOfTotalMovies = [];
+  this.listOfTotalPrograms = [];
+  }
+
+  addMovie(movie) {
+    this.listOfTotalMovies.push(movie);
+  }
+  addProgram(program) {
+    this.listOfTotalPrograms.push(program);
+  }
+}
+
+
+
 class Movie {
   constructor(title, length, genre) {
     this.title = title;
