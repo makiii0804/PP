@@ -34,8 +34,17 @@ class Movie {
 class Program {
   constructor(date) {
     this.date = new Date(date);
+    this.listOfMovies = [];
   }
-
+  addMovie(movie) {
+    if (!movie || !(movie instanceof Movie)) {
+      alert("Invalid movie input!")
+    }
+    this.listOfMovies.push(movie);
+  }
+  countMovies() {
+    return this.listOfMovies.length;
+  }
   getData() {
     this.day = this.date.getDate();
     this.month = this.date.getMonth() + 1;
