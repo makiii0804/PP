@@ -1,9 +1,9 @@
 class Festival {
   constructor() {
-  this.listOfTotalMovies = [];
-  this.listOfTotalPrograms = [];
+    this.listOfTotalMovies = [];
+    this.listOfTotalPrograms = [];
   }
-
+  
   addMovie(movie) {
     this.listOfTotalMovies.push(movie);
   }
@@ -24,31 +24,41 @@ class Movie {
     return (
       this.genre.charAt().toUpperCase() +
       this.genre.charAt(this.genre.length - 1).toUpperCase()
-    );
-  }
-  getData() {
-    return this.title + ", " + this.length + "min, " + this.genreShort();
-  }
-}
-
-class Program {
-  constructor(date) {
-    this.date = new Date(date);
-    this.listOfMovies = [];
-  }
-  addMovie(movie) {
-    if (!movie || !(movie instanceof Movie)) {
-      alert("Invalid movie input!")
+      );
     }
-    this.listOfMovies.push(movie);
+    getData() {
+      return this.title + ", " + this.length + "min, " + this.genreShort();
+    }
   }
-  countMovies() {
-    return this.listOfMovies.length;
+  
+  class Program {
+    constructor(date) {
+      this.date = new Date(date);
+      this.listOfMovies = [];
+    }
+    addMovie(movie) {
+      if (!movie || !(movie instanceof Movie)) {
+        alert("Invalid movie input!")
+      }
+      this.listOfMovies.push(movie);
+    }
+    countMovies() {
+      return this.listOfMovies.length;
+    }
+    
+    totalMovieLength() {
+      var count = 0;
+      this.totalMovieLength.forEach(function(element){
+        count+=element.length;
+      })
+      return count;
+    }
+    getProgramDate() {
+      var day = this.date.getDate();
+      var month = this.date.getMonth() + 1;
+      var year = this.date.getFullYear();
+      var date = day + "/" + month + "/" + year;
+      return date;
+    }
+    
   }
-  getData() {
-    this.day = this.date.getDate();
-    this.month = this.date.getMonth() + 1;
-    this.year = this.date.getFullYear();
-    return this.day + "/" + this.month + "/" + this.year;
-  }
-}
