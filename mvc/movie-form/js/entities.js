@@ -60,5 +60,16 @@ class Movie {
       var date = day + "/" + month + "/" + year;
       return date;
     }
-    
+    getData() {
+      var total = this.getProgramDate();
+      if(this.countMovies() === 0) {
+        total+= ", Program to be announced!";
+        return total;
+      }
+      if(this.countMovies() === 1) {
+        return total+=", " + this.countMovies() + " movie, duration: " + this.totalMovieLength +"min";
+      }
+      total+=", " + this.countMovies() + " movies, duration: " + this.totalMovieLength +"min";
+      return total;
+    }
   }
