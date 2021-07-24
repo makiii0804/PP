@@ -8,6 +8,8 @@ var dateField = document.querySelector("#date");
 var programBtn = document.querySelector("#create-program");
 var programList = document.querySelector("#program-list");
 
+var festival = new Festival();
+
 
 function createMovie () {
   var titleValue = titleField.value;
@@ -26,6 +28,8 @@ function createMovie () {
 
 movieBtn.addEventListener("click", createMovie);
 
+festival.addMovie(movie);
+var ind = festival.listOfTotalMovies.length -1;
 
 function createProgram () {
   var dateValue = new Date(dateField.value);
