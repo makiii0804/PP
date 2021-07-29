@@ -9,14 +9,13 @@ var programBtn = document.querySelector("#create-program");
 var programList = document.querySelector("#program-list");
 
 var festival = new Festival();
-
+var movie = new Movie(titleValue, lengthValue, genreValue);
 
 function createMovie () {
   var titleValue = titleField.value;
   var lengthValue = lengthField.value;
   var genreValue = genreOption.value;
   if (titleValue && lengthValue && genreValue) {
-    var movie = new Movie(titleValue, lengthValue, genreValue);
     var movieListItem = document.createElement("li");
     movieListItem.textContent = movie.getData();
     movieList.appendChild(movieListItem);
@@ -30,6 +29,10 @@ movieBtn.addEventListener("click", createMovie);
 
 festival.addMovie(movie);
 var ind = festival.listOfTotalMovies.length -1;
+
+var liElement = document.createElement("li");
+liElement.textContent = movie.getData();
+movieList.appendChild(liElement);
 
 function createProgram () {
   var dateValue = new Date(dateField.value);
