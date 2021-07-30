@@ -9,13 +9,14 @@ var programBtn = document.querySelector("#create-program");
 var programList = document.querySelector("#program-list");
 
 var festival = new Festival();
-var movie = new Movie(titleValue, lengthValue, genreValue);
+
 
 function createMovie () {
   var titleValue = titleField.value;
   var lengthValue = lengthField.value;
   var genreValue = genreOption.value;
   if (titleValue && lengthValue && genreValue) {
+    var movie = new Movie(titleValue, lengthValue, genreValue);
     var movieListItem = document.createElement("li");
     movieListItem.textContent = movie.getData();
     movieList.appendChild(movieListItem);
@@ -42,7 +43,7 @@ function createProgram () {
     if (dateValue >= currentDate) {
       var program = new Program (dateValue);
       var programListItem = document.createElement("li");
-      programListItem.textContent = program.getData();
+      programListItem.textContent = program.getProgramDate();
       programList.appendChild(programListItem);
       dateField.value = "";
     } else {
