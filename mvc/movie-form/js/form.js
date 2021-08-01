@@ -7,6 +7,7 @@ var movieList = document.querySelector("#movie-list");
 var dateField = document.querySelector("#date");
 var programBtn = document.querySelector("#create-program");
 var programList = document.querySelector("#program-list");
+var movieChoose = document.querySelector("#movie-choose")
 
 var festival = new Festival();
 
@@ -35,6 +36,11 @@ var liElement = document.createElement("li");
 liElement.textContent = movie.getData();
 movieList.appendChild(liElement);
 
+var option = document.createElement("option");
+option.textContent = movie.getData();
+option.setAttribute("value", ind);
+movieChoose.appendChild(option);
+
 function createProgram () {
   var dateValue = new Date(dateField.value);
   var currentDate = new Date();
@@ -55,4 +61,8 @@ function createProgram () {
 }
 
 programBtn.addEventListener("click", createProgram);
+
+function addMovieToProgram() {
+
+}
 
